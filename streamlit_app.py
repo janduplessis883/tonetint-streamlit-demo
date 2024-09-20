@@ -10,15 +10,16 @@ nltk.download('punkt', download_dir='nltk_files/')
 
 
 
-st.title("ToneTint - Sentiment Visualizer")
+st.title(":material/format_paint: ToneTint - Demo")
 
 # Select model from dropdown
 selected_model = st.selectbox(
-    "Pick a Text Classification Model",
+    "Pick a **Text Classification Model**",
     options=[
         "finiteautomata/bertweet-base-sentiment-analysis",
-        "cardiffnlp/twitter-roberta-base-sentiment-latest"
-    ]
+        "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    ],
+    help="Select a model to load. The models are available at 🤗 https://huggingface.co/models?filter=text-classification"
 )
 
 check_box = st.toggle("Load demo text")
@@ -42,14 +43,29 @@ else:
 # Slider for chunk size
 chunk_size = st.slider("Select chunk size", min_value=6, max_value=18, value=8)
 
-# Color pickers for sentiment colors
-c1, c2, c3 = st.columns(3, gap="large")
-with c1:
-    red_picker = st.color_picker("NEG Color", value="#e8a56c")
-with c2:
-    yellow_picker = st.color_picker("NEUT Color", value="#f0e8d2")
-with c3:
-    green_picker = st.color_picker("POS Color", value="#aec867")
+with st.expander(":material/settings: Customize Output"):
+    # Color pickers for sentiment colors
+    c1, c2, c3 = st.columns(3, gap="large")
+    with c1:
+        red_picker = st.color_picker("NEG Color", value="#e8a56c")
+    with c2:
+        yellow_picker = st.color_picker("NEUT Color", value="#f0e8d2")
+    with c3:
+        green_picker = st.color_picker("POS Color", value="#aec867")
+
+
+    c4, c5 = st.columns(2, gap="large")
+    with c4:
+        font_family = st.selectbox("Select font family", options=["Arial",
+                                                                "Helvetica",
+                                                                "Times New Roman",
+                                                                "Courier New",
+                                                                "Verdana",
+                                                                "Tahoma",
+                                                                "Georgia"
+                                                                ], index=0)
+    with c5:
+        font_size_custom = st.slider("Select font size", min_value=8, max_value=42, value=12)
 
 # Button to trigger text analysis
 button = st.button("Analyze Text")
@@ -57,7 +73,7 @@ button = st.button("Analyze Text")
 def init_model():
     # Initialize ToneTint with selected model and colors
     colors = {"NEG": red_picker, "NEU": yellow_picker, "POS": green_picker}
-    visualizer = ToneTint(model_name=selected_model, chunk_size=chunk_size, colors=colors)
+    visualizer = ToneTint(model_name=selected_model, chunk_size=chunk_size, colors=colors, font=font_family, font_size=font_size_custom)
     return visualizer
 
 # When button is clicked, analyze the text and display the result
@@ -69,14 +85,3 @@ if button:
 
     with st.container(border=True):
         st.markdown(html_content, unsafe_allow_html=True)  # Display the HTML content
-
-    # Convert HTML content to bytes
-    html_bytes = html_content.encode('utf-8')
-
-    # Download HTML
-    st.download_button(
-        label="Download as HTML",
-        data=html_bytes,
-        file_name="analyzed_text.html",
-        mime="text/html"
-    )
