@@ -33,10 +33,10 @@ if check_box:
     After brunch, we decided to head over to the King’s Road to explore. It’s one of my favorite areas of London, with its mix of high-end boutiques, quirky shops, and picturesque streets. As we walked, we ducked into a few stores, trying on clothes we couldn’t afford and laughing at the outrageous price tags. There’s something special about King’s Road—the history and charm blend perfectly with its modern, trendy vibe. We even found a little café to grab some coffee and rest our feet after all the walking.
 
     As beautiful as the day was, though, there were a few moments where the hustle of London got to me. The crowds on King’s Road can be overwhelming at times, especially with tourists moving at a snail’s pace and making it impossible to navigate the sidewalks. I love London, but sometimes I wish it was less chaotic, especially on days when all you want is a relaxing stroll. Still, despite the hiccups, it was one of those days that reminds you why London, with all its quirks, is such an incredible place to live."""
-    text_area = st.text_area("", value=initial_text, height=250)
+    text_area = st.text_area("Demo Text:", value=initial_text, height=250)
 
 else:
-    text_area = st.text_area("", placeholder="Paste text here", height=250)
+    text_area = st.text_area("You entered:", placeholder="Paste text here", height=250)
 
 
 # Slider for chunk size
