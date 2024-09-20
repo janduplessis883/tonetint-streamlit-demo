@@ -34,7 +34,7 @@ if check_box:
 
     As beautiful as the day was, though, there were a few moments where the hustle of London got to me. The crowds on King’s Road can be overwhelming at times, especially with tourists moving at a snail’s pace and making it impossible to navigate the sidewalks. I love London, but sometimes I wish it was less chaotic, especially on days when all you want is a relaxing stroll. Still, despite the hiccups, it was one of those days that reminds you why London, with all its quirks, is such an incredible place to live."""
 else:
-    inital_text = ""
+    inital_text = " "
 
 text_area = st.text_area("Paste Text here", value=initial_text, height=250)
 00
