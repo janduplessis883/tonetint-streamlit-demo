@@ -61,9 +61,13 @@ def create_pdf(html_content):
     return pdf
 
 # When button is clicked, analyze the text and display the result
+# When button is clicked, analyze the text and display the result
 if button:
-    visualizer = init_model()  # Initialize the ToneTint model
-    html_content = visualizer.visualize(text_area)  # Generate HTML from analyzed text
+    with st.spinner("Analyzing text, please wait..."):
+        visualizer = init_model()  # Initialize the ToneTint model
+        html_content = visualizer.visualize(text_area)  # Generate HTML from analyzed text
+
+    with st.container("Output")
     st.markdown(html_content, unsafe_allow_html=True)  # Display the HTML content
 
     # Convert HTML content to bytes
@@ -75,13 +79,4 @@ if button:
         data=html_bytes,
         file_name="analyzed_text.html",
         mime="text/html"
-    )
-
-    # Create PDF and provide as download
-    pdf_bytes = create_pdf(html_content)
-    st.download_button(
-        label="Download as PDF",
-        data=pdf_bytes,
-        file_name="analyzed_text.pdf",
-        mime="application/octet-stream"
     )
