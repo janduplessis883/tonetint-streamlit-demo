@@ -4,9 +4,9 @@ import nltk
 from io import BytesIO
 
 # Download the required NLTK resource
-# nltk.data.path.append('images/')  # Make sure the path exists and is writable
-# nltk.download('punkt_tab', download_dir='images/')
-# nltk.download('punkt', download_dir='images/')
+nltk.data.path.append('nltk_files/')  # Make sure the path exists and is writable
+nltk.download('punkt_tab', download_dir='nltk_files/')
+nltk.download('punkt', download_dir='nltk_files/')
 
 st.title("ToneTint Sentiment Visualizer")
 
