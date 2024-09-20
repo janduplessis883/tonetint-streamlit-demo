@@ -38,10 +38,9 @@ else:
     text_area = st.text_area("You entered:", placeholder="Paste text here", height=250)
 
 
-# Slider for chunk size
-chunk_size = st.slider("Select chunk size", min_value=6, max_value=18, value=8)
-
 with st.expander(":material/settings: Customize Output"):
+    # Slider for chunk size
+    chunk_size = st.slider("Select chunk size", min_value=6, max_value=18, value=8)
     # Color pickers for sentiment colors
     c1, c2, c3 = st.columns(3, gap="large")
     with c1:
