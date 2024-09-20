@@ -1,5 +1,5 @@
 # Machine Learning
-tensorflow
+torch
 mlflow
 transformers
 nltk
