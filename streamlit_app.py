@@ -67,7 +67,7 @@ if button:
         visualizer = init_model()  # Initialize the ToneTint model
         html_content = visualizer.visualize(text_area)  # Generate HTML from analyzed text
 
-    with st.container("Output"):
+    with st.container(border=True):
         st.markdown(html_content, unsafe_allow_html=True)  # Display the HTML content
 
     # Convert HTML content to bytes
