@@ -8,7 +8,9 @@ nltk.data.path.append('nltk_files/')  # Make sure the path exists and is writabl
 nltk.download('punkt_tab', download_dir='nltk_files/')
 nltk.download('punkt', download_dir='nltk_files/')
 
-st.title("ToneTint Sentiment Visualizer")
+
+
+st.title("ToneTint - Sentiment Visualizer")
 
 # Select model from dropdown
 selected_model = st.selectbox(
