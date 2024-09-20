@@ -2,7 +2,6 @@ import streamlit as st
 from tonetint.sentiment_visualizer import ToneTint
 import nltk
 from io import BytesIO
-import pdfkit
 
 # Download the required NLTK resource
 # nltk.data.path.append('images/')  # Make sure the path exists and is writable
@@ -54,11 +53,6 @@ def init_model():
     colors = {"NEG": red_picker, "NEU": yellow_picker, "POS": green_picker}
     visualizer = ToneTint(model_name=selected_model, chunk_size=chunk_size, colors=colors)
     return visualizer
-
-# Generate PDF from HTML
-def create_pdf(html_content):
-    pdf = pdfkit.from_string(html_content, False)
-    return pdf
 
 # When button is clicked, analyze the text and display the result
 # When button is clicked, analyze the text and display the result

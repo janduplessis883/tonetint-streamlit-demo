@@ -3,6 +3,5 @@ torch
 mlflow
 transformers
 nltk
-pdfkit
 tonetint
 colorama
