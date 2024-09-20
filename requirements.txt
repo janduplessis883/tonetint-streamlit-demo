@@ -1,5 +1,4 @@
 # Machine Learning
-pytoch
 tensorflow
 mlflow
 transformers
