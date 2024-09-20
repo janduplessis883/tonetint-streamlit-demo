@@ -5,9 +5,9 @@ from io import BytesIO
 import pdfkit
 
 # Download the required NLTK resource
-nltk.data.path.append('images/')  # Make sure the path exists and is writable
-nltk.download('punkt_tab', download_dir='images/')
-nltk.download('punkt', download_dir='images/')
+# nltk.data.path.append('images/')  # Make sure the path exists and is writable
+# nltk.download('punkt_tab', download_dir='images/')
+# nltk.download('punkt', download_dir='images/')
 
 st.title("ToneTint Sentiment Visualizer")
 
