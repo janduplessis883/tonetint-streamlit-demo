@@ -8,8 +8,6 @@ nltk.data.path.append('nltk_files/')  # Make sure the path exists and is writabl
 nltk.download('punkt_tab', download_dir='nltk_files/')
 nltk.download('punkt', download_dir='nltk_files/')
 
-
-
 st.title(":material/format_paint: ToneTint - Demo")
 
 # Select model from dropdown
